@@ -1,0 +1,45 @@
+{% extends 'ipams/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 offset-4" style="background-color:white;">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center" style="margin-top:50px">
+                    <h2>SIGN UP</h2>
+                </div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row" style="margin-top:70px">
+                    <div class="col-12">
+                        {{ form.username|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.password|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.password2|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-end align-items-center" style="margin-bottom:50px">
+                        <a href="{% url 'records-index' %}" style="margin-right:10px" class="btn base-btn base-bg-primary">Back</a>
+                        <button class="btn btn-primary" type="submit">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
